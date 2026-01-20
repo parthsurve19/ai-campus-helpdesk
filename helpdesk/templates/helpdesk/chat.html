@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Campus Helpdesk</title>
+</head>
+<body>
+
+<h2>AI Campus Helpdesk</h2>
+
+<form method="POST">
+    {% csrf_token %}
+    <input type="text" name="question" placeholder="Ask your question..." required>
+    <button type="submit">Send</button>
+</form>
+
+<hr>
+
+<div>
+    {% for chat in chats %}
+        <p><strong>You:</strong> {{ chat.question }}</p>
+        <p><strong>AI:</strong> {{ chat.answer }}</p>
+        <hr>
+    {% empty %}
+        <p>No conversations yet.</p>
+    {% endfor %}
+</div>
+
+</body>
+</html>

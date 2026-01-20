@@ -9,5 +9,6 @@ venv/
 # Database
 db.sqlite3
 
-# Editor
+# OS / Editor
 .vscode/
+.DS_Store
