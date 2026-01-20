@@ -15,9 +15,15 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include  # <--- Note the 'include' import
+from django.urls import path, include
+from django.conf import settings               # <--- Add this
+from django.conf.urls.static import static     # <--- Add this
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/profbot/', include('profbot.urls')), # This connects your ProfBot app!
+    path('api/profbot/', include('profbot.urls')),
 ]
+
+# This helper allows Django to find uploaded files while you are developing
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

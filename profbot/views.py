@@ -49,3 +49,8 @@ def upload_and_grade(request):
             return JsonResponse({'error': str(e)}, status=500)
 
     return JsonResponse({'error': 'Only POST method allowed'}, status=400)
+
+from django.shortcuts import render  # Make sure this import is at the top
+
+def student_dashboard(request):
+    return render(request, 'profbot/student_dashboard.html')

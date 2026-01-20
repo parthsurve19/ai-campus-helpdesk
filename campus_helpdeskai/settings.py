@@ -124,3 +124,11 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+import os
+
+# Base URL to access files (e.g., http://localhost:8000/media/...)
+MEDIA_URL = '/media/'
+
+# The actual folder on your computer where files sit
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
